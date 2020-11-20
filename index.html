@@ -1,6 +1,65 @@
-<html>
-My Name is Issa
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  
+   <div id="ControlDiv">
 
-Follow this twitter
-Hello How are you .
+  
+   </div>
+    <div id="DetailsDiv">
+   </div>
+   
+   <h1 id="RESULT"></h1>
+    
+    <script type="application/javascript">
+
+    let btn1 = document.createElement("button");
+    btn1.setAttribute("id","Btn1");
+    btn1.innerHTML="Add Friend";
+    btn1.addEventListener("click",AddNewTxtBox);
+    document.getElementById("ControlDiv").appendChild(btn1);
+    
+    let btn2 = document.createElement("button");
+    btn2.setAttribute("id","Btn2");
+    btn2.innerHTML="Choose One!";
+    btn2.addEventListener("click",ChooseOne);
+    document.getElementById("ControlDiv").appendChild(btn2) ;   
+
+        
+   
+        function AddNewTxtBox()
+        {
+            let txtbox = document.createElement("input");
+            txtbox.setAttribute("type","text");
+            
+            txtbox.setAttribute("placeholder","Enter Name"+document.getElementById("DetailsDiv").children.length);
+            document.getElementById("DetailsDiv").appendChild(txtbox);
+        }
+    
+        function ChooseOne()
+        {
+            let allelem = document.getElementsByTagName("input");
+            let names = [];
+            
+            for (let i=0 ; i< allelem.length ; i++ )
+           {
+               if (allelem[i].getAttribute("type")=="text")
+               names.push(allelem[i].value);
+           }
+
+            console.log(names);
+            let RandomNumber = Math.floor(Math.random() * names.length);
+            document.getElementById("RESULT").innerHTML=names[RandomNumber];
+            
+        }
+        
+    
+    </script>
+</body>
+
+
 </html>
